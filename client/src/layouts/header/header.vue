@@ -1,10 +1,13 @@
 <template>
     
     <div class="flex justify-between items-center py-4 w-full h-20 border-b">
+
         <div class="">
             <img :src="logo" alt="app-logo">
         </div>
-        <div class="flex h-full text-sm font-light gap-14 px-8 items-center rounded-full border cursor-pointer">
+
+
+        <div @click="showModal" class="flex h-full text-sm font-light gap-14 px-8 items-center rounded-full border cursor-pointer">
             <div>
                 <h1>Add Brand</h1>
             </div>
@@ -25,14 +28,38 @@
             </div>
             
         </div>
+
+        <Teleport to="#app">
+            <SearchModal ref="searchModal" />
+        </Teleport>
     </div>
         
 </template>
 
-<script setup>
+<script >
+import SearchModal from "@/modals/searchModal.vue"
+import { ref } from "vue";
 
-const logo = new URL("@/assets/logos/car-logo.webp", import.meta.url)
+export default {
+  components: {
+    SearchModal
+  },
+  setup() {
 
+    const logo = new URL("@/assets/logos/car-logo.webp", import.meta.url)
+
+    const searchModal = ref(null)
+    function showModal(){
+        console.log(searchModal.value)
+        searchModal.value.openModal()
+    }
+    return { 
+        logo,
+        searchModal,
+        showModal,
+     };
+}
+}
 </script>
 
 <style scoped>

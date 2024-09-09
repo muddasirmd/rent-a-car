@@ -1,5 +1,5 @@
 <template>
-  <div class="my-2 mx-5">
+  <div class="mx-5">
     <Landing />
   </div>
 
