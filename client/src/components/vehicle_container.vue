@@ -1,16 +1,16 @@
 <template>
     
-    <div class="flex flex-wrap justify-between gap-2">
-        <div v-for="car, key in cars" :key="key" class="flex basis-1/5 flex-col grow gap-4 border-2 rounded-lg w-fit">
+    <router-link to="details/abc123" class="flex flex-wrap justify-between gap-2">
+        <div v-for="car, key in cars" :key="key" class="flex basis-1/5 flex-col grow gap-4 border-2 rounded-lg w-fit cursor-pointer">
             
             <div class="flex">
-                <img class="flex rounded-t-lg" :src="car.img">
+                <img class="flex rounded-t-lg" :src="car.img" alt="car-img">
             </div>
 
             <div class="flex justify-between px-2">
                 <div class="flex flex-col gap-1">
                     <div>
-                        <img :src="car.logo">
+                        <img :src="car.logo" alt="logo">
                     </div>
                     <div>
                         <h1 class="font-semibold">{{ car.name }}</h1>
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </router-link>
         
 </template>
 

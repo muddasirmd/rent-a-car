@@ -1,12 +1,13 @@
 <template>
   <div class="mx-5">
-    <Landing />
+
+    <router-view></router-view>
+
   </div>
 
 </template>
 
 <script setup>
-import Landing from "@/pages/landing.vue"
 
 </script>
 
