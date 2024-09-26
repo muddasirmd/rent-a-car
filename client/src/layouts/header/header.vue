@@ -6,8 +6,7 @@
             <img :src="logo" alt="app-logo">
         </div>
 
-
-        <div @click="showModal" class="flex h-full text-sm font-light gap-14 px-8 items-center rounded-full border cursor-pointer">
+        <div @click="showModal" class="flex h-full text-sm font-light gap-14 px-8 items-center rounded-full border cursor-pointer hover:shadow-xl transition-shadow">
             <div>
                 <h1>Add Brand</h1>
             </div>

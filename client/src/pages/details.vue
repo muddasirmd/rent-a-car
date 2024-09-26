@@ -1,6 +1,6 @@
 <template>
     
-    <div>
+    <div class="flex flex-col gap-4 my-4">
         
       <Header />
 
@@ -19,8 +19,27 @@
 
 
       <div class="flex">
-        <div class="flex justify-center w-1/2 py-6 px-12">
-          <img :src="car.img" alt="car-img" />
+        <div class="flex flex-col gap-4 justify-center w-1/2 p-6">
+          
+          <img class="px-6" :src="car.img" alt="car-img" />
+
+          <div class="flex justify-between">
+            <div class="flex gap-2 border border-gray-400 rounded-xl py-2 px-4">
+
+              <img class="rounded-full" :src="ownerImg" alt="owner-img">
+
+              <div class="flex flex-col">
+                <h1>Agholor Kelvin (kelvinluke)</h1>
+                <p class="text-xs text-[#888888]">Owner</p>
+              </div>
+              
+            </div>
+
+            <div class="flex items-center">
+              <svg class="w-5 h-5 cursor-pointer fill-neutral-600 hover:fill-neutral-400" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"></path>
+              </svg>
+            </div>
+          </div>
         </div>
 
         <div class="flex flex-col justify-center gap-4 w-1/2">
@@ -73,6 +92,57 @@
         </div>
       </div>
 
+      <div class="flex">
+        <div class="flex flex-col w-1/2 gap-4">
+          <h1 class="font-semibold">To rent this car above, remember;</h1>
+          <div class="flex flex-col gap-2 p-4 rounded-md text-sm italic bg-gray-100 text-[#888888]">
+            <p>- Return the car on the specified date and time to the agreed drop-off location.</p>
+            <p>- Ensure the vehicle is in the same condition as when you received it.</p>
+            <p>- Refuel the car, following the agreed-upon fuel policy.</p>
+          </div>
+
+          
+          <div class="flex gap-4">
+            <p class="flex items-center text-3xl font-medium">=</p>
+            <h1 class="flex items-center text-5xl font-semibold">$ 270</h1>
+            <p class="flex items-end text-sm text-[#888888]">per day</p>
+          </div>
+          
+        </div>
+
+        <div class="flex w-1/2">
+          Calender
+        </div>
+      </div>
+
+      <div class="flex justify-between text-xl font-semibold">
+        <h1>Total</h1>
+        <h1>$ 270</h1>
+      </div>
+
+      <div class="flex justify-end">
+        <button class="rounded-md py-2 px-6 text-white bg-orange-500 hover:bg-orange-400">Rent The Car</button>
+      </div>
+
+      <div class="flex flex-col gap-2 w-1/2">
+        <h1 class="text-xl font-semibold">Reviews</h1>
+        
+        <textarea class="h-24 resize-none rounded-md border border-black"></textarea>
+        
+        <div class="flex justify-end">
+          <button class="flex w-fit rounded-md py-2 px-6 text-white bg-orange-500 hover:bg-orange-400">Send</button>
+        </div>
+        
+      </div>
+
+      <div v-for="i in 5" :key="i" class="flex flex-col gap-1 w-1/2">
+        <div class="flex items-center gap-4 text-[#888888]">
+          <h1 class="">Johnny</h1>
+          <span class="text-xs">1st Jan 2024</span>
+        </div>
+        <p>Amazing Experience</p>
+      </div>
+
     </div>
         
 </template>
@@ -91,10 +161,13 @@ export default {
                   logo: new URL("@/assets/logos/audi.webp", import.meta.url), 
                   img: new URL("@/assets/images/car.webp", import.meta.url),
                   features: ["Air Conditioning", "Power Steering", "ABS Brakes", "Fuel Policy: Full to Full", "Mileage allowance: unlimited"]
-                }
+    }
+
+    const ownerImg = new URL("@/assets/images/owner-img.webp", import.meta.url)
 
     return { 
-        car
+        car,
+        ownerImg,
      };
 }
 }
