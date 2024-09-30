@@ -1,16 +1,16 @@
 <template>
     
-    <div class="flex flex-wrap justify-between gap-2">
-        <div v-for="car, key in cars" :key="key" class="flex basis-1/5 flex-col grow gap-4 border-2 rounded-lg w-fit">
+    <router-link to="details/abc123" class="flex flex-wrap justify-between gap-2">
+        <div v-for="car, key in cars" :key="key" class="flex basis-1/5 flex-col grow gap-4 border-2 rounded-lg w-fit cursor-pointer">
             
             <div class="flex">
-                <img class="flex rounded-t-lg" :src="car.img">
+                <img class="flex rounded-t-lg" :src="car.img" alt="car-img">
             </div>
 
             <div class="flex justify-between px-2">
                 <div class="flex flex-col gap-1">
                     <div>
-                        <img :src="car.logo">
+                        <img :src="car.logo" alt="logo">
                     </div>
                     <div>
                         <h1 class="font-semibold">{{ car.name }}</h1>
@@ -24,7 +24,7 @@
             <div class="flex justify-between p-2">
                 <div class="flex flex-col items-center gap-1">
                     <div>
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M149.6 41L42.88 254.4c23.8 24.3 53.54 58.8 78.42 97.4 24.5 38.1 44.1 79.7 47.1 119.2h270.3L423.3 41H149.6zM164 64h230l8 192H74l90-192zm86.8 17.99l-141 154.81L339.3 81.99h-88.5zM336 279h64v18h-64v-18z"></path></svg>
+                        <svg class="w-4 h-4 fill-[#6b6b6b]" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M149.6 41L42.88 254.4c23.8 24.3 53.54 58.8 78.42 97.4 24.5 38.1 44.1 79.7 47.1 119.2h270.3L423.3 41H149.6zM164 64h230l8 192H74l90-192zm86.8 17.99l-141 154.81L339.3 81.99h-88.5zM336 279h64v18h-64v-18z"></path></svg>
                     </div>
                     <div>
                         <p class="text-xs text-slate-500 font-medium">{{ car.doors }} Doors</p>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="flex flex-col items-center gap-1">
                     <div>
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="text-sky-500" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 288c79.5 0 144-64.5 144-144S335.5 0 256 0 112 64.5 112 144s64.5 144 144 144zm128 32h-55.1c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16H128C57.3 320 0 377.3 0 448v16c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48v-16c0-70.7-57.3-128-128-128z"></path></svg>
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="w-4 h-4 text-sky-500" xmlns="http://www.w3.org/2000/svg"><path d="M256 288c79.5 0 144-64.5 144-144S335.5 0 256 0 112 64.5 112 144s64.5 144 144 144zm128 32h-55.1c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16H128C57.3 320 0 377.3 0 448v16c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48v-16c0-70.7-57.3-128-128-128z"></path></svg>
                     </div>
                     <div>
                         <p class="text-xs text-slate-500 font-medium">{{ car.seats }} Seats</p>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="flex flex-col items-center gap-1">
                     <div>
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" color="orange" style="color:orange" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"></path></svg>
+                        <svg class="w-4 h-4 fill-orange-600" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" color="orange" xmlns="http://www.w3.org/2000/svg"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"></path></svg>
                     </div>
                     <div>
                         <p class="text-xs text-slate-500 font-medium">{{ car.speed }}</p>
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </router-link>
         
 </template>
 
