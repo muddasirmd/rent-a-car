@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-wrap gap-2">
-        <div v-for="(c, key) in companies" :key="key" class="flex flex-col items-center gap-1 grow ">
-            
+
+        <div v-for="(c, key) in companies" :key="key" class="flex flex-col items-center gap-1 grow basis-16">    
             <img class="w-fit h-fit" :src="c.logo" alt="company-logo">
             <h1 class="text-xs">{{ c.name }}</h1>
         </div>

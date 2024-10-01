@@ -1,14 +1,9 @@
 <template>
-    <div class="flex flex-col gap-6 relative">
+    <div class="flex flex-col gap-6 my-4 relative">
 
         <Header />
 
         <LogosBanner />
-
-        <div>
-            <h1 class="text-xl font-bold">Available Cars</h1>
-            <p class="text-sm">Wheels that you want</p>
-        </div>
 
         <VehicleContainer />
 
