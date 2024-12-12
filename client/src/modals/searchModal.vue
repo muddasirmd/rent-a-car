@@ -135,10 +135,10 @@ export default{
         const yearContainer = ref(null);
         const yearDropDownToggler = ref(null);
 
-        onMounted(() => {
+        // onMounted(() => {
             // Add a click event listener to the document when the component is mounted
             document.addEventListener('click', handleClick);
-        });
+        // });
 
         function handleClick(event) {
             handleBrandClickOutside(event);

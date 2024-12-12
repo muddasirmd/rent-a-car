@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col gap-6 my-4 relative">
+    <div class="flex flex-col gap-6 md:my-4 relative">
 
         <Header />
 
