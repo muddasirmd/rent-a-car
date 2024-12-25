@@ -1,6 +1,7 @@
 <template>
 
-<div v-if="showModal" class="absolute top-0 z-50 overflow-y-hidden flex items-center justify-center h-screen w-full bg-black bg-opacity-50">
+<Transition name="fade">
+<div v-if="showModal" class="absolute top-0 z-50 flex items-center justify-center h-screen w-full overflow-auto bg-black bg-opacity-50">
     <div class="flex flex-col  w-full md:w-[30rem] mx-4 md:mx-0 p-6 rounded-lg bg-white">
         
         <div class="flex flex-col md:flex-row items-end md:items-center gap-2 md:gap-0 pb-3 md:pb-5">
@@ -27,8 +28,9 @@
             <div class="flex flex-col gap-2">
                 <label for="year" class="text-base md:text-lg font-medium">Select Year</label>
                 <div class=" relative">
-                    <button type="button" @click="toggleYear = !toggleYear" ref="yearDropDownToggler" class="flex justify-between items-center border cursor-pointer text-base rounded-lg w-full py-2 md:py-3 px-2 border-gray-300 text-slate-300 focus:ring-1 focus:ring-blue-600">
-                        Select Year
+                    <button type="button" @click="toggleYear = !toggleYear" ref="yearDropDownToggler" 
+                        :class="[selectedYear ? 'text-black' : 'text-slate-300', 'flex justify-between items-center border cursor-pointer text-base rounded-lg w-full py-2 md:py-3 px-2 border-gray-300 focus:ring-1 focus:ring-blue-600']">
+                        {{ selectedYear ? selectedYear : 'Select Year'}}
 
                         <span class="border-l-2 pl-2">
                             <svg class="w-4 h-4 fill-slate-300 hover:fill-slate-400" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path>
@@ -38,7 +40,8 @@
                     
                     <div v-if="toggleYear" ref="yearContainer" class="absolute w-full max-h-screen z-50 py-4 my-2 overflow-scroll rounded-md flex flex-col gap-2 bg-[#f9f9f9] dropdown-content">
                         
-                        <div v-for="year,key in [2024,2023,2022,2021,2020,2019]" :key="key" class="flex p-3 items-center cursor-pointer hover:bg-[#f1f1f1]">
+                        <div v-for="year,key in [2024,2023,2022,2021,2020,2019]" :key="key" class="flex p-3 items-center cursor-pointer hover:bg-[#f1f1f1]"
+                            @click="handleSelectedYear($event, year)">
                             
                             <h1 class="font-light">{{ year }}</h1>
                         </div>
@@ -59,9 +62,10 @@
                         </span>
                     </button>
         
-                    <div v-if="toggleBrand" ref="brandContainer" class="absolute h-2/3 w-full max-h-screen py-4 my-2 overflow-scroll rounded-md flex flex-col gap-2 bg-[#f9f9f9] dropdown-content">
+                    <div v-if="toggleBrand" ref="brandContainer" class="absolute h-[20rem] w-full py-4 my-2 overflow-y-auto rounded-md flex flex-col gap-2 bg-[#f9f9f9] dropdown-content">
                         
-                        <div v-for="brand,key in brandList" :key="key" class="flex gap-2 p-3 items-center cursor-pointer hover:bg-[#f1f1f1]">
+                        <div v-for="brand,key in brandList" :key="key" class="flex gap-2 p-3 items-center cursor-pointer hover:bg-[#f1f1f1]"
+                            @click="console.log('Jimmy')">
                             
                             <img :src="brand.logo" class="w-8" alt="brand-logo">
                             
@@ -80,6 +84,7 @@
         </form>
     </div>
 </div>
+</Transition>
 
 </template>
 
@@ -95,6 +100,8 @@ export default{
 
         let toggleBrand = ref(false);
         let toggleYear = ref(false);
+        let selectedYear = ref()
+        let selectedBrand = ref()
 
         let brandList = [
             {name: "Audi", logo: new URL("@/assets/logos/audi.webp", import.meta.url)},
@@ -135,10 +142,7 @@ export default{
         const yearContainer = ref(null);
         const yearDropDownToggler = ref(null);
 
-        onMounted(() => {
-            // Add a click event listener to the document when the component is mounted
-            document.addEventListener('click', handleClick);
-        });
+        document.addEventListener('click', handleClick);
 
         function handleClick(event) {
             handleBrandClickOutside(event);
@@ -153,12 +157,17 @@ export default{
             }
         }        
         
-        function handleYearClickOutside(event){
+        function handleYearClickOutside(e, year){
             
-            console.log(yearContainer.value)
+            // To Keep Open the Dropdown
             if(yearContainer.value && event.target != yearDropDownToggler.value && ![...yearContainer.value.children].includes(event.target)){
                 toggleYear.value = false;
             }
+        }
+
+        function handleSelectedYear(e, year){
+            selectedYear.value = year;
+            toggleYear.value = false;
         }
 
 
@@ -166,6 +175,7 @@ export default{
         return { 
             toggleBrand,
             toggleYear,
+            selectedYear,
             brandList,
             showModal,
             openModal,
@@ -174,6 +184,8 @@ export default{
             brandDropDownToggler,
             yearContainer,
             yearDropDownToggler,
+            handleYearClickOutside,
+            handleSelectedYear,
         }
     }
 }
@@ -181,6 +193,17 @@ export default{
 </script>
 
 <style>
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.3s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
 /* .dropbtn {
         background-color: #4CAF50;
         color: white;

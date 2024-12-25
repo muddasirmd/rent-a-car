@@ -126,7 +126,6 @@
       </div>
 
       <div class="flex flex-col gap-2 md:w-1/2">
-        <h1 class="text-xl font-medium md:font-semibold">Reviews</h1>
         
         <textarea class="h-24 p-2 resize-none rounded-md border border-black"></textarea>
         
@@ -134,15 +133,19 @@
           <button class="flex w-fit rounded-md py-2 px-6 text-white bg-orange-500 hover:bg-orange-400">Send</button>
         </div>
         
+        <h1 class="text-xl md:text-2xl font-medium md:font-semibold">Reviews</h1>
       </div>
 
-      <div v-for="i in 5" :key="i" class="flex flex-col gap-1 w-1/2">
-        <div class="flex items-center gap-4 text-[#888888]">
-          <h1 class="">Johnny</h1>
-          <span class="text-xs">1st Jan 2024</span>
+      <div>
+        <div v-for="i in 5" :key="i" class="flex flex-col gap-1 w-1/2 py-2 border-b border-black">
+          <div class="flex items-center gap-4 text-[#888888]">
+            <h1 class="">Johnny</h1>
+            <span class="text-xs">1st Jan 2024</span>
+          </div>
+          <p>Amazing Experience</p>
         </div>
-        <p>Amazing Experience</p>
       </div>
+      
 
     </div>
         
