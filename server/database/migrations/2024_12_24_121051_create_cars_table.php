@@ -22,10 +22,10 @@ return new class extends Migration
             $table->string("short_description")->nullable();
             $table->string("long_description")->nullable();
             $table->integer("rent")->comments("Per Day");
-            $table->integer("model_year");
+            $table->integer("model_year")->nullable();
             $table->unsignedBigInteger("brand_id");
             $table->unsignedBigInteger("owner_id");
-            $table->tinyInteger("status");
+            $table->tinyInteger("status")->default(1);
             $table->timestamps();
 
             $table->foreign("brand_id")->references('id')->on('brands');
