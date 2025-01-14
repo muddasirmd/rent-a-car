@@ -12,4 +12,8 @@ class Brand extends Model
      * @var list<string>
      */
     protected $guarded = ["id"];
+
+    public function cars(){
+        return $this->hasMany(Car::class);
+    }
 }

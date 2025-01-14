@@ -12,4 +12,8 @@ class Car extends Model
      * @var list<string>
      */
     protected $guarded = ["id"];
+
+    public function brand(){
+        return $this->belongsTo(Brand::class);
+    }
 }
