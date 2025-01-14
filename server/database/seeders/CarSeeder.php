@@ -16,6 +16,7 @@ class CarSeeder extends Seeder
         Car::insert([
             [
                 'name'=> 'Audi V8',
+                'image' => 'images/user-1/cars/car.webp',
                 'doors'=> 2,
                 'seats'=> 2,
                 'speed'=> '240 Km/hr',
@@ -26,6 +27,7 @@ class CarSeeder extends Seeder
             ],
             [
                 'name'=> 'BMW X6M',
+                'image' => 'images/user-1/cars/car.webp',
                 'doors'=> 4,
                 'seats'=> 4,
                 'speed'=> '250 Km/hr',
@@ -36,6 +38,7 @@ class CarSeeder extends Seeder
             ],
             [
                 'name'=> '2023 Kia Forte',
+                'image' => 'images/user-1/cars/car.webp',
                 'doors'=> 4,
                 'seats'=> 4,
                 'speed'=> '230 Km/hr',

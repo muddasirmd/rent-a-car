@@ -17,15 +17,15 @@ class BrandSeeder extends Seeder
         Brand::insert([
         [
             'name'=> 'BMW',
-            'image'=> ''
+            'image'=> 'brand_icons/bmw-logo.png'
         ],
         [
             'name'=> 'Audi',
-            'image'=> ''
+            'image'=> 'brand_icons/audi.webp'
         ],
         [
             'name'=> 'Kia',
-            'image'=> ''
+            'image'=> 'brand_icons/kia-logo.webp'
         ],
     ]);
     }
