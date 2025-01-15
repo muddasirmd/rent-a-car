@@ -15,9 +15,9 @@ class CarResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
+            'uuid' => $this->uuid,
             'name' => $this->name,
-            'image' => $this->image,
+            'image' => asset($this->image),
             'doors' => $this->doors,
             'seats' => $this->seats,
             'speed' => $this->speed,
@@ -28,10 +28,11 @@ class CarResource extends JsonResource
             'model_year' => $this->model_year,
             'status' => $this->status,
             'brand' => [ // Parent Record should be access like this; it's not accessible through parent resource collection
-                'id' => $this->id,
-                'name' => $this->name,
-                'image'=> $this->image,
-                'status' => $this->status
+                'uuid' => $this->brand->uuid,
+                'slug' => $this->brand->slug,
+                'name' => $this->brand->name,
+                'image'=> asset($this->brand->image),
+                'status' => $this->brand->status
             ],
             'owner' => [
                 // 'id'=> $this->id,

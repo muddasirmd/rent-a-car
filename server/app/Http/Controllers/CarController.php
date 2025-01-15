@@ -16,7 +16,8 @@ class CarController extends Controller
     public function index()
     {
         // return response()->json(CarResource::collection(Car::all()));
-        return CarResource::collection(Car::with(relations: 'brand')->get());
+        // return CarResource::collection(Car::with(relations: 'brand')->get());
+        return response()->json(CarResource::collection(Car::with(relations: 'brand')->get()));
     }
 
     /**

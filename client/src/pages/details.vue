@@ -161,6 +161,7 @@ export default {
   },
   setup() {
 
+    
     const car = {name: "Audi", doors: 4, seats: 4, speed: "250 km/h", mode: "Auto", 
                   logo: new URL("@/assets/logos/audi.webp", import.meta.url), 
                   img: new URL("@/assets/images/car.webp", import.meta.url),
