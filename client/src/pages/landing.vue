@@ -5,7 +5,10 @@
 
         <LogosBanner />
 
-        <VehicleContainer />
+        <Suspense>
+            <VehicleContainer />
+        </Suspense>
+        
 
     </div>
 </template>

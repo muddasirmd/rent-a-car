@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Car;
+use Illuminate\Support\Str;
 
 class CarSeeder extends Seeder
 {
@@ -15,8 +16,9 @@ class CarSeeder extends Seeder
     {
         Car::insert([
             [
+                'uuid' => (string) Str::uuid(),
                 'name'=> 'Audi V8',
-                'image' => 'images/user-1/cars/car.webp',
+                'image' => 'storage/images/user_1/cars/car.webp',
                 'doors'=> 2,
                 'seats'=> 2,
                 'speed'=> '240 Km/hr',
@@ -26,8 +28,9 @@ class CarSeeder extends Seeder
                 'owner_id'=> 1,
             ],
             [
+                'uuid' => (string) Str::uuid(),
                 'name'=> 'BMW X6M',
-                'image' => 'images/user-1/cars/car.webp',
+                'image' => 'storage/images/user_1/cars/car.webp',
                 'doors'=> 4,
                 'seats'=> 4,
                 'speed'=> '250 Km/hr',
@@ -37,8 +40,9 @@ class CarSeeder extends Seeder
                 'owner_id'=> 2
             ],
             [
+                'uuid' => (string) Str::uuid(),
                 'name'=> '2023 Kia Forte',
-                'image' => 'images/user-1/cars/car.webp',
+                'image' => 'storage/images/user_1/cars/car.webp',
                 'doors'=> 4,
                 'seats'=> 4,
                 'speed'=> '230 Km/hr',

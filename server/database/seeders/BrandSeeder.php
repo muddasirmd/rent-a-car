@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Brand;
+use Illuminate\Support\Str;
 
 class BrandSeeder extends Seeder
 {
@@ -17,15 +18,21 @@ class BrandSeeder extends Seeder
         Brand::insert([
         [
             'name'=> 'BMW',
-            'image'=> 'brand_icons/bmw-logo.png'
+            'slug'=> 'bmw',
+            'image'=> 'brand_icons/bmw-logo.png',
+            'uuid' => (string) Str::uuid(),
         ],
         [
             'name'=> 'Audi',
-            'image'=> 'brand_icons/audi.webp'
+            'slug'=> 'audi',
+            'image'=> 'brand_icons/audi.webp',
+            'uuid' => (string) Str::uuid(),
         ],
         [
             'name'=> 'Kia',
-            'image'=> 'brand_icons/kia-logo.webp'
+            'slug'=> 'kia',
+            'image'=> 'brand_icons/kia-logo.webp',
+            'uuid' => (string) Str::uuid(),
         ],
     ]);
     }
