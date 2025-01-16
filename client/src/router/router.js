@@ -8,7 +8,7 @@ import Details from '@/pages/details.vue';
 // Define your routes
 const routes = [
   { path: '/', component: Landing },
-  { path: '/details/:id', component: Details }
+  { path: '/cars/:id', component: Details }
 ];
 
 // Create the router instance and pass in the routes

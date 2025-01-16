@@ -7,7 +7,7 @@
         </div>
     
         <div class="flex flex-col md:flex-row md:flex-wrap md:justify-between gap-2">
-            <router-link :to="'details/'+car.uuid" v-for="car, key in cars" :key="key" class="flex basis-1/5 flex-col grow gap-4 border-2 rounded-lg w-fit cursor-pointer">
+            <router-link :to="'cars/'+car.uuid" v-for="car, key in cars" :key="key" class="flex basis-1/5 flex-col grow gap-4 border-2 rounded-lg w-fit cursor-pointer">
                 
                 <div class="flex">
                     <img class="flex rounded-t-lg" :src="car.image" alt="car-img">
@@ -69,8 +69,9 @@
 </template>
 
 <script setup>
-import endpoints from '@/assets/api/endpoints';
+import { inject } from 'vue';
 
+const endpoints = inject('endpoints');
 // Get cars data from API
 const cars = await endpoints.getCars();
 
