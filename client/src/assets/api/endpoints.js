@@ -17,7 +17,7 @@ const getCars = async () => {
 
 const getCar = async (id) => {
     try{
-        const response = await api.get('/cars');
+        const response = await api.get('/cars/'+id);
         return response.data
     }
     catch(error){
@@ -30,5 +30,6 @@ const getCar = async (id) => {
 }
 
 export default {
-    getCars
+    getCars,
+    getCar,
 };

@@ -41,7 +41,7 @@ class CarController extends Controller
      */
     public function show(string $id)
     {
-        // return new CarCollection($car);
+        return response()->json(new CarResource(Car::where('uuid', $id)->first()));
     }
 
     /**

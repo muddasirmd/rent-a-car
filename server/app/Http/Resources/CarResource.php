@@ -35,9 +35,9 @@ class CarResource extends JsonResource
                 'status' => $this->brand->status
             ],
             'owner' => [
-                // 'id'=> $this->id,
-                // 'name'=> $this->name,
-
+                'uuid'=> $this->owner->uuid,
+                'name'=> $this->owner->name,
+                'image'=> asset($this->owner->image),
             ],
         ];
     }
