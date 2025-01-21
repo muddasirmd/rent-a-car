@@ -37,7 +37,7 @@
         </div>
 
         <!-------------------------------------------- Bottom Menu  ---------------------   ----------------------->
-        <div class="fixed md:hidden bottom-0 w-full text-xs text-white bg-gray-900">
+        <div class="fixed md:hidden bottom-0 w-full text-xs text-white bg-gray-900 z-50">
             <div class="flex justify-between p-2">
 
                 <div class="flex flex-col items-center justify-center gap-1 text-[#ff6e31]">
